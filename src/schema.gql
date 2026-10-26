@@ -1,0 +1,221 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Bag {
+  Id: Int!
+  color: String!
+  baggAgeTag: String!
+  weight: Int!
+  status: BagStatus!
+  passengerId: PassengerEntity!
+}
+
+enum BagStatus {
+  CHECKED_IN
+  LOADED
+  IN_TRANSIT
+  LOST
+}
+
+type Staff {
+  EmployeeId: Int!
+  name: String!
+  email: String!
+  password: String!
+  flightId: Int!
+  role: StaffRole!
+  assignedFlight: String!
+  flight: FlightEntity!
+}
+
+enum StaffRole {
+  ADMIN
+  PILOT
+  COPILOT
+  FLIGHT_ATTENDANT
+}
+
+type AirportEntity {
+  id: Float!
+  name: String!
+  location: String!
+  country: String!
+  flight: [FlightEntity!]!
+}
+
+type Seat {
+  Id: Int!
+  seatNumber: String!
+  status: SeatStatus!
+  flight: FlightEntity!
+}
+
+enum SeatStatus {
+  AVAILABLE
+  RESERVED
+  MAINTENANCE
+}
+
+type FlightEntity {
+  Id: Int!
+  flightNumber: Int!
+  departureAirport: String!
+  destinationAirport: String!
+  departureTime: DateTime!
+  arrivalTime: DateTime!
+  airline: String!
+  availableSeats: Int!
+  status: FlightStatus!
+  booking: [Book!]!
+  staffs: [Staff!]!
+  airport: AirportEntity!
+  seats: [Seat!]!
+  staff: [Staff!]!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+"""The status of a flight"""
+enum FlightStatus {
+  DELAYED
+  CANCELLED
+  IN_FLIGHT
+  LANDED
+}
+
+type Book {
+  Id: Int!
+  name: String!
+  passportNumber: Int!
+  email: String!
+  age: Int!
+  seatNumber: String!
+  flightId: Int!
+  passengerId: Int!
+  seatId: Int!
+  flight: FlightEntity!
+  passenger: PassengerEntity!
+  seat: Seat!
+}
+
+type PassengerEntity {
+  Id: Int!
+  name: String!
+  email: String!
+  passportNumber: String!
+  nationality: String!
+  bags: [Bag!]!
+  booking: [Book!]!
+}
+
+type Query {
+  getAllStaff: [Staff!]!
+  getStaffById: Staff
+  getAllFlights(filter: FlightFilter, page: Float, take: Float): [FlightEntity!]!
+  getFlightById(Id: Float!): FlightEntity
+  getAllAirports: [AirportEntity!]!
+  getAirportById(id: Float!): AirportEntity
+  getAllPassengers: [PassengerEntity!]!
+  getPassengerById(id: Float!): PassengerEntity!
+  getAllSeats: [Seat!]!
+  getSeatById: Seat
+  getAllBookings: [Book!]!
+  getBookingById(id: Float!): Book
+  getAllBags: [Bag!]!
+  getBagById(id: Float!): Bag
+}
+
+input FlightFilter {
+  departureTime: DateTime
+  destinationAirport: String
+  airline: String
+}
+
+type Mutation {
+  createStaff(staffdto: StaffInput!, flightId: Float!): Staff!
+  updateStaff: Staff!
+  deleteStaff: Boolean!
+  login(logindto: LoginDto!): String!
+  register(register: StaffInput!): String!
+  createFlight(flightData: FlightInput!, airportId: Float!): FlightEntity!
+  updateFlight(Id: Float!, flightData: FlightInput!): FlightEntity!
+  deleteFlight(Id: Float!): Boolean!
+  createAirport(airportData: AirportDto!): AirportEntity!
+  updateAirport(id: Float!, airportData: AirportDto!): AirportEntity!
+  deleteAirport(id: Float!): Boolean!
+  createPassenger(passenger: PassengerDto!): PassengerEntity!
+  updatePassenger(id: Float!, passenger: PassengerDto!): PassengerEntity!
+  deletePassenger(id: Float!): Boolean!
+  createSeat(seatId: Float!, seatDto: SeatDto!, flightId: Float!): Seat!
+  updateSeat: Seat!
+  removeSeat(id: Float!): Boolean!
+  createBooking(booking: BookingDto!): Book!
+  updateBooking(id: Float!, updatedBooking: BookingDto!): Book!
+  deleteBooking(id: Float!): Boolean!
+  createBag(bag: BagDto!, passengerId: Float!): Bag!
+  updateBag(id: Float!, bag: BagDto!): Bag!
+  deleteBag(id: Float!): Boolean!
+}
+
+input StaffInput {
+  name: String!
+  email: String!
+  password: String!
+  flightId: Int!
+  role: StaffRole!
+  assignedFlight: String!
+}
+
+input LoginDto {
+  email: String!
+  password: String!
+}
+
+input FlightInput {
+  flightNumber: Float!
+  departureAirport: String!
+  destinationAirport: String!
+  departureTime: DateTime!
+  arrivalTime: DateTime!
+  airline: String!
+  availableSeats: Float!
+  status: FlightStatus!
+}
+
+input AirportDto {
+  name: String!
+  location: String!
+  country: String!
+}
+
+input PassengerDto {
+  name: String!
+  email: String!
+  passportNumber: String!
+  nationality: String!
+}
+
+input SeatDto {
+  seatNumbber: String!
+  status: SeatStatus!
+}
+
+input BookingDto {
+  seatNumber: String
+  flightNumber: Int
+  name: String
+  passportNumber: String
+  email: String
+  age: Int
+}
+
+input BagDto {
+  color: String!
+  baggAgeTag: String!
+  weight: Int!
+  status: BagStatus!
+}

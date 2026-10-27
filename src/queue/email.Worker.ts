@@ -14,7 +14,7 @@ export class EmailWorker extends WorkerHost {
     super();
   }
 
-  async process(job: Job<Data>, token?: string) {
+  async process(job: Job<Data>) {
     if (job.name == 'email') {
       await this.mailerService.sendMail({
         from: 'user@gmail.com',

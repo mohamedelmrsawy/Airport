@@ -85,7 +85,6 @@ import { BullModule } from '@nestjs/bullmq';
       connection: { host: 'localhost', port: 6379 },
       defaultJobOptions: { attempts: 2, delay: 2000 },
     }),
-    BullModule.registerQueue({ name: 'sendEmail' }),
     PassengerModule,
     FlightModule,
     AirportModule,

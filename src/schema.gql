@@ -219,3 +219,7 @@ input BagDto {
   weight: Int!
   status: BagStatus!
 }
+
+type Subscription {
+  changFlightStatus: FlightEntity!
+}

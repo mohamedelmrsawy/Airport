@@ -66,9 +66,9 @@ Make sure you have the following installed:
 
    DATABASE_HOST=localhost
    DATABASE_PORT=5432
-   DATABASE_USERNAME=your_username
-   DATABASE_PASSWORD=your_password
-   DATABASE_NAME=flight_booking
+   DATABASE_USERNAME=postgres
+   DATABASE_PASSWORD=1234
+   DATABASE_NAME=AIR_System
 
    JWT_SECRET=your_secret_key
    ```

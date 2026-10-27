@@ -13,6 +13,7 @@ import { BullModule } from '@nestjs/bullmq';
     TypeOrmModule.forFeature([Book]),
     forwardRef(() => AuthModule),
     forwardRef(() => StaffModule),
+    BullModule.registerQueue({ name: 'sendEmail' }),
   ],
 })
 export class BookingModule {}

@@ -5,6 +5,7 @@ import { TypeOrmModule } from 'node_modules/@nestjs/typeorm/dist/typeorm.module'
 import { Book } from './entities/booking.Entity';
 import { AuthModule } from 'src/auth/auth.module';
 import { StaffModule } from 'src/staff/staff.module';
+import { BullModule } from '@nestjs/bullmq';
 
 @Module({
   providers: [BookingResolver, BookingService],

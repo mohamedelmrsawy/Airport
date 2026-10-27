@@ -84,7 +84,6 @@ import { JwtPayload } from './helper/jwtPayload';
       connection: { host: 'localhost', port: 6379 },
       defaultJobOptions: { attempts: 2, delay: 2000 },
     }),
-    BullModule.registerQueue({ name: 'sendEmail' }),
     PassengerModule,
     FlightModule,
     AirportModule,

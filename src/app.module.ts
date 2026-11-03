@@ -20,6 +20,7 @@ import { StaffService } from './staff/staff.service';
 import { Context } from 'graphql-ws';
 import { JwtModule, JwtService } from '@nestjs/jwt';
 import { JwtPayload } from './helper/jwtPayload';
+import { BullModule } from '@nestjs/bullmq';
 
 @Module({
   imports: [

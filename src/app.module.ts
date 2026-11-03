@@ -78,7 +78,7 @@ import { BullModule } from '@nestjs/bullmq';
         password: config.get('PASSWORD'),
         database: config.get('NAME'),
         autoLoadEntities: true,
-        synchronize: true,
+        synchronize: false,
       }),
     }),
     BullModule.forRoot({

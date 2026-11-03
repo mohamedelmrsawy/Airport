@@ -38,6 +38,8 @@
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.3",
     "bullmq": "^6.4.2",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
     "dataloader": "^2.2.3",
     "dotenv": "^18.0.8",
     "graphql": "^16.14.2",

@@ -70,7 +70,7 @@ Make sure you have the following installed:
    DATABASE_PASSWORD=1234
    DATABASE_NAME=AIR_System
 
-   JWT_SECRET=your_secret_key
+   JWT_SECRET=JWT_SECRET
    ```
 
    Update the variable names to match those used in your application. Never commit real credentials or secrets.

@@ -59,9 +59,13 @@ export class FlightEntity {
   @Field(() => [Staff])
   staffs!: Staff[];
 
-  @ManyToOne(() => AirportEntity, (a) => a.flight)
+  @ManyToOne(() => AirportEntity, (a) => a.departureFlights)
   @Field(() => AirportEntity)
-  airport!: AirportEntity;
+  departureAirportRelation!: AirportEntity;
+
+  @ManyToOne(() => AirportEntity, (a) => a.arrivalFlights)
+  @Field(() => AirportEntity)
+  destinationAirportRelation!: AirportEntity;
 
   @OneToMany(() => Seat, (seat) => seat.flight)
   @Field(() => [Seat])

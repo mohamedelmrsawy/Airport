@@ -21,7 +21,11 @@ export class AirportEntity {
   @Field()
   country!: string;
 
-  @OneToMany(() => FlightEntity, (f) => f.airport)
+  @OneToMany(() => FlightEntity, (f) => f.departureAirportRelation)
   @Field(() => [FlightEntity])
-  flight!: FlightEntity[];
+  departureFlights!: FlightEntity[];
+
+  @OneToMany(() => FlightEntity, (f) => f.destinationAirportRelation)
+  @Field(() => [FlightEntity])
+  arrivalFlights!: FlightEntity[];
 }

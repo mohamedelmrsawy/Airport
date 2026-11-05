@@ -3,9 +3,9 @@ import { AirportService } from './airport.service';
 import { AirportEntity } from './entities/airport.Entity';
 import { AirportDto } from './dto/airport.dto';
 import { UseGuards } from '@nestjs/common';
-import { AuthGuard } from 'src/guard/authGuard';
-import { Roles } from 'src/decorator/staff.decorator';
-import { StaffRole } from 'src/enums/staff.role';
+import { AuthGuard } from '../guard/authGuard';
+import { Roles } from '../decorator/staff.decorator';
+import { StaffRole } from '../enums/staff.role';
 
 @Resolver()
 export class AirportResolver {

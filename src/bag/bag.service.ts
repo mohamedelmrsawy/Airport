@@ -8,7 +8,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Bag } from './entities/bag.Entity';
 import { Repository } from 'typeorm';
 import { BagDto } from './dto/bag.dto';
-import { PassengerService } from 'src/passenger/passenger.service';
+import { PassengerService } from '../passenger/passenger.service';
 
 @Injectable()
 export class BagService {

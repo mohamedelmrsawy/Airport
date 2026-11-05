@@ -7,10 +7,10 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { FlightStatus } from '../../enums/flight.status';
-import { Book } from 'src/booking/entities/booking.Entity';
-import { Staff } from 'src/staff/entities/staff.Entity';
-import { AirportEntity } from 'src/airport/entities/airport.Entity';
-import { Seat } from 'src/seat/entities/seat.Entity';
+import { Book } from '../../booking/entities/booking.Entity';
+import { Staff } from '../../staff/entities/staff.Entity';
+import { AirportEntity } from '../../airport/entities/airport.Entity';
+import { Seat } from '../../seat/entities/seat.Entity';
 
 @ObjectType()
 @Entity('flights')

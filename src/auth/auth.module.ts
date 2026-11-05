@@ -3,7 +3,7 @@ import { AuthService } from './auth.service';
 import { AuthResolver } from './auth.resolver';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { StaffModule } from 'src/staff/staff.module';
+import { StaffModule } from '../staff/staff.module';
 
 @Module({
   exports: [JwtModule],

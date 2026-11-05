@@ -1,7 +1,7 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { ObjectType, Field, Int } from '@nestjs/graphql';
 import { StaffRole } from '../../enums/staff.role';
-import { FlightEntity } from 'src/flight/entities/flight.Entity';
+import { FlightEntity } from '../../flight/entities/flight.Entity';
 
 @Entity()
 @ObjectType()

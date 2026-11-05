@@ -3,8 +3,8 @@ import { BookingService } from './booking.service';
 import { BookingResolver } from './booking.resolver';
 import { TypeOrmModule } from 'node_modules/@nestjs/typeorm/dist/typeorm.module';
 import { Book } from './entities/booking.Entity';
-import { AuthModule } from 'src/auth/auth.module';
-import { StaffModule } from 'src/staff/staff.module';
+import { AuthModule } from '../auth/auth.module';
+import { StaffModule } from '../staff/staff.module';
 import { BullModule } from '@nestjs/bullmq';
 
 @Module({

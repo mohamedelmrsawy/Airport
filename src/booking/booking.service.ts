@@ -7,11 +7,11 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, DataSource } from 'typeorm';
 import { Book } from './entities/booking.Entity';
 import { BookingDto } from './dto/booking.dto';
-import { PassengerEntity } from 'src/passenger/entities/passenger.Entity';
-import { FlightEntity } from 'src/flight/entities/flight.Entity';
-import { Seat } from 'src/seat/entities/seat.Entity';
+import { PassengerEntity } from '../passenger/entities/passenger.Entity';
+import { FlightEntity } from '../flight/entities/flight.Entity';
+import { Seat } from '../seat/entities/seat.Entity';
 import { FlightStatus } from '../enums/flight.status';
-import { SeatStatus } from 'src/enums/seat.status';
+import { SeatStatus } from '../enums/seat.status';
 import { Queue } from 'bullmq';
 import { InjectQueue } from '@nestjs/bullmq';
 

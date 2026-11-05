@@ -9,9 +9,9 @@ import { JwtService } from '@nestjs/jwt';
 import { Request } from 'express';
 import { JwtPayload } from '../helper/jwtPayload';
 import { ConfigService } from '@nestjs/config';
-import { StaffService } from 'src/staff/staff.service';
+import { StaffService } from '../staff/staff.service';
 import { Reflector } from '@nestjs/core';
-import { StaffRole } from 'src/enums/staff.role';
+import { StaffRole } from '../enums/staff.role';
 
 @Injectable()
 export class AuthGuard implements CanActivate {

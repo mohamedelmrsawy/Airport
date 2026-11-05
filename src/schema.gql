@@ -41,7 +41,8 @@ type AirportEntity {
   name: String!
   location: String!
   country: String!
-  flight: [FlightEntity!]!
+  departureFlights: [FlightEntity!]!
+  arrivalFlights: [FlightEntity!]!
 }
 
 type Seat {
@@ -69,7 +70,8 @@ type FlightEntity {
   status: FlightStatus!
   booking: [Book!]!
   staffs: [Staff!]!
-  airport: AirportEntity!
+  departureAirportRelation: AirportEntity!
+  destinationAirportRelation: AirportEntity!
   seats: [Seat!]!
   staff: [Staff!]!
 }
@@ -141,7 +143,7 @@ type Mutation {
   deleteStaff: Boolean!
   login(logindto: LoginDto!): String!
   register(register: StaffInput!): String!
-  createFlight(flightData: FlightInput!, airportId: Float!): FlightEntity!
+  createFlight(flightData: FlightInput!): FlightEntity!
   updateFlight(Id: Float!, flightData: FlightInput!): FlightEntity!
   deleteFlight(Id: Float!): Boolean!
   createAirport(airportData: AirportDto!): AirportEntity!
@@ -200,7 +202,7 @@ input PassengerDto {
 }
 
 input SeatDto {
-  seatNumbber: String!
+  seatNumber: String!
   status: SeatStatus!
 }
 

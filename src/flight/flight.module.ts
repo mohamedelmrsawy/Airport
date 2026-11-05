@@ -3,9 +3,9 @@ import { FlightService } from './flight.service';
 import { FlightResolver } from './flight.resolver';
 import { FlightEntity } from './entities/flight.Entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AirportModule } from 'src/airport/airport.module';
-import { AuthModule } from 'src/auth/auth.module';
-import { StaffModule } from 'src/staff/staff.module';
+import { AirportModule } from '../airport/airport.module';
+import { AuthModule } from '../auth/auth.module';
+import { StaffModule } from '../staff/staff.module';
 
 @Module({
   providers: [FlightResolver, FlightService],

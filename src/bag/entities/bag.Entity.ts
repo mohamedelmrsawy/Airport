@@ -1,7 +1,7 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { ObjectType, Field, Int } from '@nestjs/graphql';
 import { BagStatus } from '../../enums/bag.status';
-import { PassengerEntity } from 'src/passenger/entities/passenger.Entity';
+import { PassengerEntity } from '../../passenger/entities/passenger.Entity';
 
 @Entity()
 @ObjectType()

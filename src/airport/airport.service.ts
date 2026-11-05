@@ -59,4 +59,8 @@ export class AirportService {
     const result = await this.airportRepository.delete(id);
     return result.affected !== 0;
   }
+
+  async getAirportByName(name: string) {
+    return await this.airportRepository.findOne({ where: { name } });
+  }
 }

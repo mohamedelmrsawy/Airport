@@ -2,10 +2,10 @@ import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { BookingService } from './booking.service';
 import { Book } from './entities/booking.Entity';
 import { BookingDto } from './dto/booking.dto';
-import { Roles } from 'src/decorator/staff.decorator';
+import { Roles } from '../decorator/staff.decorator';
 import { UseGuards } from '@nestjs/common';
-import { AuthGuard } from 'src/guard/authGuard';
-import { StaffRole } from 'src/enums/staff.role';
+import { AuthGuard } from '../guard/authGuard';
+import { StaffRole } from '../enums/staff.role';
 
 @Resolver()
 export class BookingResolver {

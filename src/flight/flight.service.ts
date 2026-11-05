@@ -8,7 +8,7 @@ import { FlightEntity } from './entities/flight.Entity';
 import { Repository } from 'typeorm';
 import { FlightInput } from './dto/flight.dto';
 import { FlightFilter } from './filter/flight.filter';
-import { AirportService } from 'src/airport/airport.service';
+import { AirportService } from '../airport/airport.service';
 
 @Injectable()
 export class FlightService {
@@ -51,7 +51,7 @@ export class FlightService {
     return await this.flightRepository.findOne({ where: { Id } });
   }
 
-  async createFlight(flightData: FlightInput, airportId: number) {
+  async createFlight(flightData: FlightInput) {
     if (!flightData) {
       throw new BadRequestException();
     }
@@ -64,15 +64,26 @@ export class FlightService {
       );
     }
 
-    const airport = await this.airportService.getAirportById(airportId);
+    const departureAirport = await this.airportService.getAirportByName(
+      flightData.departureAirport,
+    );
 
-    if (!airport) {
+    if (!departureAirport) {
+      throw new NotFoundException();
+    }
+
+    const destinationAirport = await this.airportService.getAirportByName(
+      flightData.destinationAirport,
+    );
+
+    if (!destinationAirport) {
       throw new NotFoundException();
     }
 
     const flight = this.flightRepository.create({
       ...flightData,
-      airport,
+      departureAirportRelation: departureAirport,
+      destinationAirportRelation: destinationAirport,
     });
     return await this.flightRepository.save(flight);
   }

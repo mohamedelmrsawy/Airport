@@ -3,9 +3,9 @@ import { BagService } from './bag.service';
 import { BagResolver } from './bag.resolver';
 import { Bag } from './entities/bag.Entity';
 import { TypeOrmModule } from 'node_modules/@nestjs/typeorm/dist/typeorm.module';
-import { PassengerModule } from 'src/passenger/passenger.module';
-import { AuthModule } from 'src/auth/auth.module';
-import { StaffModule } from 'src/staff/staff.module';
+import { PassengerModule } from '../passenger/passenger.module';
+import { AuthModule } from '../auth/auth.module';
+import { StaffModule } from '../staff/staff.module';
 
 @Module({
   providers: [BagResolver, BagService],

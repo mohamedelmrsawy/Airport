@@ -2,10 +2,10 @@ import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { BagService } from './bag.service';
 import { Bag } from './entities/bag.Entity';
 import { BagDto } from './dto/bag.dto';
-import { Roles } from 'src/decorator/staff.decorator';
+import { Roles } from '../decorator/staff.decorator';
 import { UseGuards } from '@nestjs/common';
-import { AuthGuard } from 'src/guard/authGuard';
-import { StaffRole } from 'src/enums/staff.role';
+import { AuthGuard } from '../guard/authGuard';
+import { StaffRole } from '../enums/staff.role';
 
 @Resolver()
 export class BagResolver {

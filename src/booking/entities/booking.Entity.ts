@@ -7,9 +7,9 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { FlightEntity } from 'src/flight/entities/flight.Entity';
-import { PassengerEntity } from 'src/passenger/entities/passenger.Entity';
-import { Seat } from 'src/seat/entities/seat.Entity';
+import { FlightEntity } from '../../flight/entities/flight.Entity';
+import { PassengerEntity } from '../../passenger/entities/passenger.Entity';
+import { Seat } from '../../seat/entities/seat.Entity';
 
 @Entity()
 @ObjectType()

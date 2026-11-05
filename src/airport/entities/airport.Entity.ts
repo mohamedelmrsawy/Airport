@@ -1,5 +1,5 @@
 import { ObjectType, Field } from '@nestjs/graphql';
-import { FlightEntity } from 'src/flight/entities/flight.Entity';
+import { FlightEntity } from '../../flight/entities/flight.Entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @ObjectType()

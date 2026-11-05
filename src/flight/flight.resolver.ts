@@ -12,10 +12,10 @@ import { FlightService } from './flight.service';
 import { FlightEntity } from './entities/flight.Entity';
 import { FlightInput } from './dto/flight.dto';
 import { FlightFilter } from './filter/flight.filter';
-import { Roles } from 'src/decorator/staff.decorator';
-import { StaffRole } from 'src/enums/staff.role';
+import { Roles } from '../decorator/staff.decorator';
+import { StaffRole } from '../enums/staff.role';
 import { UseGuards } from '@nestjs/common';
-import { AuthGuard } from 'src/guard/authGuard';
+import { AuthGuard } from '../guard/authGuard';
 import { Staff } from '../staff/entities/staff.Entity';
 import DataLoader from 'dataloader';
 import { PubSub } from 'graphql-subscriptions';
@@ -65,11 +65,8 @@ export class FlightResolver {
   @Mutation(() => FlightEntity)
   @Roles(StaffRole.ADMIN, StaffRole.PILOT)
   @UseGuards(AuthGuard)
-  async createFlight(
-    @Args('flightData') flightData: FlightInput,
-    @Args('airportId') airportId: number,
-  ) {
-    return await this.flightService.createFlight(flightData, airportId);
+  async createFlight(@Args('flightData') flightData: FlightInput) {
+    return await this.flightService.createFlight(flightData);
   }
 
   @Mutation(() => FlightEntity)

@@ -6,7 +6,7 @@ interface Data {
 import { MailerService } from '@nestjs-modules/mailer';
 import { Processor, WorkerHost } from '@nestjs/bullmq';
 import { Job } from 'bullmq';
-import { PassengerEntity } from 'src/passenger/entities/passenger.Entity';
+import { PassengerEntity } from '../passenger/entities/passenger.Entity';
 
 @Processor('sendEmail')
 export class EmailWorker extends WorkerHost {

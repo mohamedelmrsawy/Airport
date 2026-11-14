@@ -11,6 +11,7 @@ import { Book } from '../../booking/entities/booking.Entity';
 import { Staff } from '../../staff/entities/staff.Entity';
 import { AirportEntity } from '../../airport/entities/airport.Entity';
 import { Seat } from '../../seat/entities/seat.Entity';
+import { Airline } from 'src/airline/entities/airline.Entity';
 
 @ObjectType()
 @Entity('flights')
@@ -70,4 +71,8 @@ export class FlightEntity {
   @OneToMany(() => Seat, (seat) => seat.flight)
   @Field(() => [Seat])
   seats!: Seat[];
+
+  @ManyToOne(() => Airline, (airline) => airline.flights)
+  @Field(() => Airline)
+  airlines!: Airline;
 }

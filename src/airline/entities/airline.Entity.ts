@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { ObjectType, Field } from '@nestjs/graphql';
+import { FlightEntity } from 'src/flight/entities/flight.Entity';
 
 @ObjectType()
 @Entity()
@@ -27,4 +28,8 @@ export class Airline {
   @Column()
   @Field()
   isActive!: boolean;
+
+  @OneToMany(() => FlightEntity, (flight) => flight.airlines)
+  @Field(() => [FlightEntity])
+  flights!: FlightEntity[];
 }

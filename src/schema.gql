@@ -58,6 +58,16 @@ enum SeatStatus {
   MAINTENANCE
 }
 
+type Airline {
+  id: Float!
+  airlineCode: String!
+  name: String!
+  country: String!
+  city: String!
+  isActive: Boolean!
+  flights: [FlightEntity!]!
+}
+
 type FlightEntity {
   Id: Int!
   flightNumber: Int!
@@ -73,6 +83,7 @@ type FlightEntity {
   departureAirportRelation: AirportEntity!
   destinationAirportRelation: AirportEntity!
   seats: [Seat!]!
+  airlines: Airline!
   staff: [Staff!]!
 }
 
@@ -129,6 +140,8 @@ type Query {
   getBookingById(id: Float!): Book
   getAllBags: [Bag!]!
   getBagById(id: Float!): Bag
+  getAllAirlines: [Airline!]!
+  getAirlineById(id: Float!): Airline
 }
 
 input FlightFilter {
@@ -161,6 +174,9 @@ type Mutation {
   createBag(bag: BagDto!, passengerId: Float!): Bag!
   updateBag(id: Float!, bag: BagDto!): Bag!
   deleteBag(id: Float!): Boolean!
+  createAirline(airlineData: AirlineDto!): Airline!
+  updateAirline(id: Float!, airlineData: AirlineDto!): Airline!
+  deleteAirline(id: Float!): Airline!
 }
 
 input StaffInput {
@@ -220,6 +236,14 @@ input BagDto {
   baggAgeTag: String!
   weight: Int!
   status: BagStatus!
+}
+
+input AirlineDto {
+  airlineCode: String!
+  name: String!
+  country: String!
+  city: String!
+  isActive: Boolean!
 }
 
 type Subscription {
